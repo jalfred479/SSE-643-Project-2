@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
 		if (Input.GetButton("Fire1") && Time.time > nextFire) {
 			nextFire = Time.time + fireRate;
 			Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
+			GetComponent<AudioSource>().Play();
 		}
 	}
 
@@ -44,6 +45,6 @@ public class PlayerController : MonoBehaviour
 			Mathf.Clamp(GetComponent<Rigidbody>().position.z, boundary.zMin, boundary.zMax)
 			);
 
-		r.rotation = Quaternion.Euler (0.0f, 0.0f, r.velocity.x * -tilt);
+		r.rotation = Quaternion.Euler (0 , 0, r.velocity.x * -tilt);
 	}
 }
