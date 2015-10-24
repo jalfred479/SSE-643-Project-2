@@ -17,8 +17,14 @@ public class PlayerController : MonoBehaviour
 	public GameObject shot;
 	public Transform shotSpawn;
 	public float fireRate;
-
 	private float nextFire;
+
+	public bool bonusShot;
+	public bool bonusShot2;
+	public Transform bonusShotPort;
+	public Transform bonusShotStarboard;
+	public Transform bonusShotPortAngle;
+	public Transform bonusShotStarboardAngle;
 
 	void Update()
 	{
@@ -26,6 +32,20 @@ public class PlayerController : MonoBehaviour
 			nextFire = Time.time + fireRate;
 			Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
 			GetComponent<AudioSource>().Play();
+			if(bonusShot)
+			{
+				Instantiate(shot, bonusShotPort.position, bonusShotPort.rotation);
+				GetComponent<AudioSource>().Play();
+				Instantiate(shot, bonusShotStarboard.position, bonusShotStarboard.rotation);
+				GetComponent<AudioSource>().Play();
+			}
+			if(bonusShot2)
+			{
+				Instantiate(shot, bonusShotPortAngle.position, bonusShotPortAngle.rotation);
+				GetComponent<AudioSource>().Play();
+				Instantiate(shot, bonusShotStarboardAngle.position, bonusShotStarboardAngle.rotation);
+				GetComponent<AudioSource>().Play();
+			}
 		}
 	}
 
