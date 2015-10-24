@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class DestroyByContact : MonoBehaviour {
@@ -11,7 +11,8 @@ public class DestroyByContact : MonoBehaviour {
 	void Start()
 	{
 		GameObject gameControllerObject = GameObject.FindWithTag ("GameController");
-		if (gameControllerObject != null) {
+		if (gameControllerObject != null) 
+		{
 			gameController = gameControllerObject.GetComponent<GameController>();
 		}
 		if (gameController == null) 
@@ -21,9 +22,13 @@ public class DestroyByContact : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other) {
-		if (other.tag == "boundary")
+		if (other.tag == "boundary" || other.tag == "Enemy")
 			return;
-		Instantiate(explosion, GetComponent<Rigidbody>().transform.position, GetComponent<Rigidbody>().transform.rotation);
+
+		if (explosion != null) 
+		{
+			Instantiate (explosion, GetComponent<Rigidbody> ().transform.position, GetComponent<Rigidbody> ().transform.rotation);
+		}
 		if (other.tag == "Player") 
 		{
 			Instantiate (playerExplosion, other.transform.position, other.transform.rotation);
