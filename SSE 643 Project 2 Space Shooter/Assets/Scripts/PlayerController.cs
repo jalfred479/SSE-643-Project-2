@@ -66,5 +66,9 @@ public class PlayerController : MonoBehaviour
 			);
 
 		r.rotation = Quaternion.Euler (0 , 0, r.velocity.x * -tilt);
+		bonusShotPort.rotation = Quaternion.Euler (0, 0, r.velocity.x * tilt);
+		bonusShotStarboard.rotation = Quaternion.Euler (0, 0, r.velocity.x * tilt);
+		bonusShotPortAngle.rotation = Quaternion.Euler (0, 345, r.velocity.x * tilt);
+		bonusShotStarboardAngle.rotation = Quaternion.Euler (0, 15, r.velocity.x * tilt);
 	}
 }

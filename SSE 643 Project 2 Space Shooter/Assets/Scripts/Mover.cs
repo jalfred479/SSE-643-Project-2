@@ -18,7 +18,7 @@ public class Mover : MonoBehaviour
 
 	void FixedUpdate()
 	{
-		if (looker && gameObject.transform.position.z < 12 && player.activeInHierarchy) 
+		if (looker && gameObject.transform.position.z < 12 && (player != null && player.activeInHierarchy)) 
 		{
 			rb.velocity = transform.forward * 0f;
 			gameObject.transform.LookAt (player.transform);

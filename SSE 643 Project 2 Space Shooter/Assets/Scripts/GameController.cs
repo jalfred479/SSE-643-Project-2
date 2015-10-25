@@ -72,7 +72,7 @@ public class GameController : MonoBehaviour {
 			Quaternion spawnRotation;
 
 			waveText.text = "Wave " + waveNum;
-			for (int i = 0; i < hazardCount && !respawn; i++) 
+			for (int i = 0; i < hazardCount && !respawn && !gameOver; i++) 
 			{
 				GameObject hazard;
 				if(Random.value > enemyProb)
